@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ListIterator;
 
 public class AgenciaBancaria {
 
@@ -63,7 +64,7 @@ public class AgenciaBancaria {
     public static void criarContacorrente() {
         System.out.println("\nNome: ");
         String nome = input.next();
-                      input.nextLine();
+        input.nextLine();
 
         System.out.println("\nCPF: ");
         String cpf = input.next();
@@ -93,7 +94,7 @@ public class AgenciaBancaria {
         return contacorrente;
     }
 
-    public static void depositar () {
+    public static void depositar() {
         System.out.println("Informe o número da conta: ");
         int numeroDaConta = input.nextInt();
 
@@ -142,24 +143,50 @@ public class AgenciaBancaria {
                 Double valor = input.nextDouble();
 
                 contarecebe.transferir(contarecebe, valor);
-            }else{
+            } else {
                 System.out.println("Conta para deposito não foi encontrada");
             }
         }
         operacoes();
     }
-    public static void encontrarconta(){
-        if(contasBancarias.size() > 0) {
-            for(ContaCorrente contacorrente: contasBancarias){
+
+    public static void encontrarconta() {
+        if (contasBancarias.size() > 0) {
+            for (ContaCorrente contacorrente : contasBancarias) {
                 System.out.println(contacorrente);
 
-                           }
-        }else{
+            }
+        } else {
             System.out.println("Não existem contas cadastradas");
         }
         operacoes();
 
     }
+
+    public static void encerrarconta() {
+        System.out.println("Informe o numero da conta a ser encerrada");
+        int numerodaconta = input.nextInt();
+
+        ContaCorrente encerrarconta = encontrarConta(numerodaconta);
+        if (encerrarconta != null) {
+            int numeroContaRecebe = input.nextInt();
+        } else {
+            System.out.println("Conta encerrada");
+        }
+        operacoes();
+    }
+
+    /* public static void remove() {
+        int numerodaConta = input.nextInt();
+        if (numerodaconta != null){
+            System.out.println();
+        }
+        ArrayList<ContaCorrente> List_Of_Array = null;
+        ListIterator listIterator = List_Of_Array.listIterator();
+        listIterator.next();
+        listIterator.remove();
+        operacoes();
+    }*/
 
     public static void sair(){
     }
