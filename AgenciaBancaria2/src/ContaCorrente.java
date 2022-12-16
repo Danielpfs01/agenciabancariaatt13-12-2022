@@ -7,11 +7,6 @@ public class ContaCorrente {
     private Cliente cliente;
     private Double saldo = 0.0;
 
-    private String contaCorrente;
-
-    private String contaPoupança;
-
-
     public ContaCorrente( Cliente cliente) {
         this.numerodaConta = quantidadeDeContas;
         this.cliente = cliente;
@@ -22,7 +17,6 @@ public class ContaCorrente {
     }
 
     public int getNumerodaConta() {
-
         return numerodaConta;
     }
     public void setNumerodaConta(int numerodaConta) {
@@ -30,30 +24,27 @@ public class ContaCorrente {
 
     }
     public Cliente getCliente() {
-
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
-
         this.cliente = cliente;
     }
     public Double getSaldo() {
-
         return saldo;
     }
     public void setSaldo(Double saldo) {
-
         this.saldo = saldo;
     }
 
     public String toString(){
-        return "\nNumero da conta: " + this.getNumerodaConta() +
-                "\nNome: " + this.cliente.getNome() +
-                "\nCPF: " + this.cliente.getCpf() +
-                "\nEmail: " + this.cliente.getEmail() +
-                "\nSaldo: " + Utilitarios.doubleToString(this.getSaldo()) +
-                "\n";
+        return "\nNumero da conta: "
+                + this.getNumerodaConta()
+                +"\nNome: " + this.cliente.getNome()
+                +"\nCPF: " + this.cliente.getCpf()
+                +"\nEmail: " + this.cliente.getEmail()
+                +"\nSaldo: " + Utilitarios.doubleToString (this.getSaldo())
+                +"\n";
     }
     public void depositar(Double valor) {
         if (valor > 0) {
